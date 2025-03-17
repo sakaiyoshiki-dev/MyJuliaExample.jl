@@ -1,0 +1,4 @@
+name = "MyJuliaExample"
+uuid = "c5d1bf38-ce54-4138-8be9-f95ec06bea48"
+authors = ["SAKAI Yoshiki <sakai@sakaiyoshiki.dev>"]
+version = "0.1.0"
