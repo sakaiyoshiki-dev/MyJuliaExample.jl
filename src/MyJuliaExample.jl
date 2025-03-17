@@ -1,5 +1,8 @@
 module MyJuliaExample
+export mysquare
 
-greet() = print("Hello World!")
+function mysquare(x::Number)
+    return x^2
+end
 
 end # module MyJuliaExample
