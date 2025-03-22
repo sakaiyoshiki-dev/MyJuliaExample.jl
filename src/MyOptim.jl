@@ -6,18 +6,27 @@ struct MinimizeOptions
     alpha::Float64
 end
 
-function myminimize(f::Function, grad_f::Function, x0::Number, option)
-    # 最急降下法で最小値を求める
-    # f: 目的関数
-    # grad_f: fの勾配
-    # x0: 初期値
-    # option: 辞書型のオプション
-    #   max_iter: 最大繰り返し回数
-    #   alpha: 学習率
-    #   atol: 収束のしきい値
-    #   verbose: ログを出力するかどうか
-    # return: 最小値を取るx, f(x)
+"""
+最急降下法により最小値を求める
 
+# Arguments
+- `f::Function`: 目的関数
+- `grad_f::Function`: fの勾配
+- `x0::Number`: 初期値
+
+# Options
+- `max_iter::Int=100`: 最大繰り返し回数
+- `alpha::Float64=0.1`: 学習率
+- `atol::Float64=1e-6`: 収束のしきい値
+- `verbose::Bool=false`: ログを出力するかどうか
+
+# Returns
+- `x::Number`: 最小値を取るx
+- `f(x)`: 最小値
+"""
+function myminimize(f::Function, grad_f::Function, x0::Number, option)
+
+    # オプションの取得
     max_iter = get(option, "max_iter", 100)
     alpha = get(option, "alpha", 0.1)
     atol = get(option, "atol", 1e-6)
